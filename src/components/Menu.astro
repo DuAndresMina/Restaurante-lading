@@ -1,0 +1,89 @@
+---
+const dishes = [
+  {
+    name: "Pasta Carbonara",
+    description: "Pasta fresca con salsa cremosa, panceta y queso parmesano. Preparada con los mejores ingredientes importados y elaborada por nuestros chefs expertos.",
+    price: "$15.99",
+    image: "/pasta-min.jpeg"
+  },
+  {
+    name: "Salmón a la Parrilla",
+    description: "Salmón fresco con vegetales asados y salsa de limón. Pescado seleccionado diariamente para garantizar la máxima frescura y sabor.",
+    price: "$22.99",
+    image: "/salmon-min.jpeg"
+  },
+  {
+    name: "Risotto de Hongos",
+    description: "Arroz arborio con variedad de hongos y trufa. Un plato italiano auténtico preparado con hongos silvestres y trufa negra importada.",
+    price: "$18.99",
+    image: "/risoto-min.jpg"
+  },
+  {
+    name: "Filete Mignon",
+    description: "Corte premium de res con puré de papas y espárragos. Carne de la más alta calidad, madurada y preparada al punto de su preferencia.",
+    price: "$29.99",
+    image: "/filete-min.jpeg"
+  }
+];
+---
+
+<section id="menu" class="py-20 bg-amber-50">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-amber-900">Nuestro Menú</h2>
+    
+    <div class="swiper menu-swiper">
+      <div class="swiper-wrapper">
+        {dishes.map(dish => (
+          <div class="swiper-slide">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto">
+              <div class="md:flex">
+                <div class="md:w-1/2">
+                  <img 
+                    src={dish.image} 
+                    alt={dish.name}
+                    class="w-full h-[300px] md:h-[400px] object-cover"
+                  />
+                </div>
+                <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                  <h3 class="text-3xl font-bold mb-4 text-amber-800">{dish.name}</h3>
+                  <p class="text-gray-600 mb-6 text-lg">{dish.description}</p>
+                  <p class="text-3xl font-bold text-amber-600">{dish.price}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-button-next text-amber-800"></div>
+      <div class="swiper-button-prev text-amber-800"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  new Swiper('.menu-swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
