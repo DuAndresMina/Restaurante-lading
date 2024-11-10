@@ -4,25 +4,26 @@ const dishes = [
     name: "Pasta Carbonara",
     description: "Pasta fresca con salsa cremosa, panceta y queso parmesano. Preparada con los mejores ingredientes importados y elaborada por nuestros chefs expertos.",
     price: "$15.99",
-    image: "/Restaurante-lading/pasta-min.jpeg"
+    image: "/Restaurante-lading/pasta.webp"
+    
   },
   {
     name: "Salmón a la Parrilla",
     description: "Salmón fresco con vegetales asados y salsa de limón. Pescado seleccionado diariamente para garantizar la máxima frescura y sabor.",
     price: "$22.99",
-    image: "/Restaurante-lading/salmon-min.jpeg"
+    image: "/Restaurante-lading/salmon.webp"
   },
   {
     name: "Risotto de Hongos",
     description: "Arroz arborio con variedad de hongos y trufa. Un plato italiano auténtico preparado con hongos silvestres y trufa negra importada.",
     price: "$18.99",
-    image: "/Restaurante-lading/risoto-min.jpg"
+    image: "/Restaurante-lading/risoto.webp"
   },
   {
     name: "Filete Mignon",
     description: "Corte premium de res con puré de papas y espárragos. Carne de la más alta calidad, madurada y preparada al punto de su preferencia.",
     price: "$29.99",
-    image: "/Restaurante-lading/filete-min.jpeg"
+    image: "/Restaurante-lading/filete.webp"
   }
 ];
 ---
@@ -39,9 +40,11 @@ const dishes = [
               <div class="md:flex">
                 <div class="md:w-1/2">
                   <img 
+                    loading="lazy"
                     src={dish.image} 
                     alt={dish.name}
-                    class="w-full h-[300px] md:h-[400px] object-cover"
+                    class="w-full h-[300px] md:h-[400px] object-cover "
+                    
                   />
                 </div>
                 <div class="md:w-1/2 p-8 flex flex-col justify-center">
